@@ -28,6 +28,14 @@ backBtn.addEventListener('click', toggleScreen);
  * lets Add category and tasks with JS
  */
 
+const filterCategory = category => {
+    return tasks.filter(
+        task =>
+            task.category.toLocaleLowerCase() ===
+            category.title.toLocaleLowerCase()
+    );
+};
+
 const categoriesContainer = document.querySelector('.categories');
 
 const renderCategory = () => {
@@ -35,11 +43,7 @@ const renderCategory = () => {
 
     // Get All the Task of current category
     categories.map(category => {
-        const categoryTask = tasks.filter(  
-            task =>
-                task.category.toLocaleLowerCase() ===
-                category.title.toLocaleLowerCase()
-        );
+        const categoryTask = filterCategory(category);
         const div = document.createElement('div');
 
         div.classList.add('category');
