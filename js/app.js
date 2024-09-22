@@ -1,3 +1,6 @@
-document.querySelector('.menuBar').addEventListener('clcik', event => {
-    const target = event.target.dataset.id;
-});
+const wrapper = document.querySelector('.wrapper'),
+    menuBrn = document.querySelector('.menu-btn');
+
+const toggleScreen = () => wrapper.classList.toggle('show-category');
+
+menuBrn.addEventListener('click', toggleScreen);
