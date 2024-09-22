@@ -63,7 +63,7 @@ body {
 .screen-bacdrop {
     width: 150%;
     height: 20rem;
-    background-color: yellow;
+    background-color: hsl(60, 100%, 50%);
     border-radius: 0 0 50% 50%;
     position: absolute;
     top: 0;
@@ -301,9 +301,10 @@ body {
 }
 
 .task-wrapper .delete {
-    min-width: 2em;
-    height: 2em;
+    /* min-width: 2em;
+    height: 2em; */
     padding: .5em;
+    border: none;
     border-radius: 59%;
     color: hsl(216, 8%, 12%);
     cursor: pointer;
@@ -311,6 +312,9 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: 399ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
         color: hsl(0, 75%, 46%);
@@ -318,5 +322,142 @@ body {
     }
 }
 
+.task-wrapper .delete svg {
+    width: 1.2em;
+}
+
 /** Add task */
 
+.add-task-button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background-color: hsl(60, 100%, 50%);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:active {
+        transform: scale(1.1);
+    }
+
+    &.button--active {
+        transform: rotate(45deg);
+        z-index: 5;
+        bottom: 20em;
+    }
+}
+
+
+.add-task-button svg {
+    width: 2em;
+    color: hsl(216, 8%, 12%);
+    transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+/** Modal Add Task  */
+.add-task {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 20px 30px;
+    transition: 360ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+    &.active {
+        bottom: 0;
+    }
+}
+
+.add-task .heading {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group :where(label, input, select) {
+    width: 100%;
+    display: block;
+}
+
+.input-group :where(input, select) {
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: .5em;
+    font-size: 1em;
+    padding: 10px;
+    transition: 300ms ease;
+
+    &:focus {
+        outline: none;
+        box-shadow: hsla(0, 0%, 0%, 0.05) 0px 6px 24px 0px, hsla(0, 0%, 0%, 0.08) 0px 0px 0px 1px;
+    }
+}
+
+.input-group label {
+    width: max-content;
+    padding: 0 5px;
+    margin-top: 5px;
+    font-size: 14px;
+    color: hsl(216, 8%, 12%);
+    margin-bottom: 5px;
+}
+
+.buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buttons button {
+    padding: 10px 30px;
+    border-radius: .4em;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &.add-button {
+        background-color: hsl(60, 100%, 50%)
+    }
+}
+
+.add-task-bacdrop {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 135%;
+    height: 20em;
+    border-radius: 50% 50% 0 0;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.black-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: hsla(217, 100%, 8%, 0.356);
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
