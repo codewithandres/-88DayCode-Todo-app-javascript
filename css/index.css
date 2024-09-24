@@ -326,6 +326,14 @@ body {
     width: 1.2em;
 }
 
+.not-taks {
+    margin-top: 5em;
+    text-align: center;
+    font-size: 1.7rem;
+    opacity: .6;
+    font-weight: 600;
+}
+
 /** Add task */
 
 .add-task-button {
