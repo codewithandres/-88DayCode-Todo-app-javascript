@@ -29,9 +29,7 @@ menuBrn.addEventListener('click', toggleScreen);
 
 backBtn.addEventListener('click', toggleScreen);
 
-/*
- * lets Add category and tasks with JS
- */
+//* lets Add category and tasks with JS
 
 const filterCategory = category => {
     return tasks.filter(
@@ -73,9 +71,7 @@ const showSelectedCategory = category => {
 const renderCategory = () => {
     categoriesContainer.innerHTML = '';
 
-    /*
-     *Get All the Task of current category
-     */
+    //*Get All the Task of current category
     categories.map(category => {
         const categoryTask = filterCategory(category);
         const div = document.createElement('div');
@@ -99,16 +95,9 @@ const renderTasks = () => {
             selectedCategory.title.toLocaleLowerCase()
     );
 
-    /*
-     * if no task found
-     */
-
-    if (categoryTask.length === 0) {
-        taskContainer.innerHTML = `
-            <p class="not-taks"> NO task for this category </p>
-        `;
-        return;
-    }
+    //* if no task found
+    if (categoryTask.length === 0)
+        taskContainer.innerHTML = ` <p class="not-taks"> NO task for this category </p>`;
 
     categoryTask.map(task => {
         const div = document.createElement('div');
@@ -123,19 +112,15 @@ const renderTasks = () => {
         checbox.setAttribute('id', task.id);
         checbox.checked = task.completed;
 
-        /*
-         * add completion functionallity on click checkbox
-         */
+        //* add completion functionallity on click checkbox
+
         checbox.addEventListener('change', () => {
             const index = tasks.findIndex(t => t.id === task.id);
-            /*
-             * change the completed value of the task
-             */
-            tasks[index].completed = !tasks[index].completed;
-            /*
-             *save the changes in local storage
-             */
 
+            //* change the completed value of the task
+            tasks[index].completed = !tasks[index].completed;
+
+            //*save the changes in local storage
             saveLocal();
         });
 
@@ -161,10 +146,7 @@ const renderTasks = () => {
     calculateTotal();
 };
 
-/*
- * save and get data from local storage
- */
-
+// * save and get data from local storage
 const saveLocal = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 };
@@ -175,15 +157,18 @@ const getLocal = () => {
     tasks.splice(0, tasks.length, ...localTasks);
 };
 
-/*
-    TODO: lets ads Funcionality to ad new tasks
-*/
+// TODO: lets ads Funcionality to ad new tasks
+const categorySelect = document.querySelector('#category-select');
+categories.map(category => {
+    const options = document.createElement('option');
 
-// these all local are already stored tasks
+    options.value = category.title.toLowerCase();
+    options.textContent = category.title;
+
+    categorySelect.appendChild(options);
+});
+
+//* These all local are already stored tasks
 getLocal();
-
 calculateTotal();
-
-renderCategory();
-
 renderTasks();
