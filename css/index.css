@@ -428,6 +428,8 @@ body {
 }
 
 .buttons button {
+
+    z-index: 2;
     padding: 10px 30px;
     border-radius: .4em;
     border: none;

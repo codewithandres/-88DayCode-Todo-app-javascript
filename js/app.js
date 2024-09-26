@@ -158,7 +158,34 @@ const getLocal = () => {
 };
 
 // TODO: lets ads Funcionality to ad new tasks
-const categorySelect = document.querySelector('#category-select');
+const categorySelect = document.querySelector('#category-select'),
+    cancelButton = document.querySelector('.cancel-button'),
+    addButton = document.querySelector('.add-button'),
+    taskInput = document.querySelector('#task-input');
+
+cancelButton.addEventListener('click', toggleAddTaskForm);
+
+addButton.addEventListener('click', () => {
+    const task = taskInput.value.trim();
+    const category = categorySelect.value;
+
+    if (task === '') return alert('Debes agregar un titulo');
+
+    const newTask = {
+        id: crypto.randomUUID(),
+        task,
+        category,
+        completed: false,
+    };
+
+    tasks.push(newTask);
+    taskInput.value = '';
+
+    saveLocal();
+    toggleAddTaskForm();
+    renderTasks();
+});
+
 categories.map(category => {
     const options = document.createElement('option');
 
