@@ -379,15 +379,16 @@ body {
     padding: 20px 30px;
     transition: 360ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
+    h1.heading {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+    }
+
     &.active {
         bottom: 0;
     }
 }
 
-.add-task .heading {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-}
 
 .input-group {
     position: relative;
@@ -417,7 +418,7 @@ body {
     padding: 0 5px;
     margin-top: 5px;
     font-size: 14px;
-    color: hsl(216, 8%, 12%);
+    color: hsl(215, 41%, 92%);
     margin-bottom: 5px;
 }
 
