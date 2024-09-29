@@ -449,10 +449,11 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    color: hsl(0, 0%, 100%);
     width: 135%;
     height: 20em;
     border-radius: 50% 50% 0 0;
-    background-color: hsl(0, 0%, 100%);
+    background-color: hsl(231, 39%, 13%);
 }
 
 .black-backdrop {
