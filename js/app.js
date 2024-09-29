@@ -31,13 +31,12 @@ backBtn.addEventListener('click', toggleScreen);
 
 //* lets Add category and tasks with JS
 
-const filterCategory = category => {
-    return tasks.filter(
+const filterCategory = category =>
+    tasks.filter(
         task =>
             task.category.toLocaleLowerCase() ===
             category.title.toLocaleLowerCase()
     );
-};
 
 const categoriesContainer = document.querySelector('.categories'),
     categoryTitle = document.querySelector('.category--title'),
